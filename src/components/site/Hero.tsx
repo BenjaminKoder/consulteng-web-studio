@@ -40,9 +40,6 @@ export const Hero = () => {
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-7">
-                <a href="#kontakt">Kontakt meg</a>
-              </Button>
             </div>
 
             <p className="mt-7 max-w-md text-sm text-muted-foreground">

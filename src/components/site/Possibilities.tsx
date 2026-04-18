@@ -1,14 +1,24 @@
+import {
+  CalendarCheck,
+  FileText,
+  Users,
+  Repeat,
+  Mail,
+  MessageSquare,
+  LayoutDashboard,
+  TrendingUp,
+} from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 const items = [
-  "Booking",
-  "Skjema",
-  "CRM",
-  "Automatisert oppfølging",
-  "Nyhetsbrev",
-  "SMS-varsler",
-  "Interne dashboards",
-  "Analyse og forbedring",
+  { icon: CalendarCheck, title: "Booking", text: "La kundene booke direkte fra nettsiden." },
+  { icon: FileText, title: "Skjema", text: "Tilpassede skjemaer for inntak, tilbud eller forespørsel." },
+  { icon: Users, title: "CRM", text: "Hold orden på kunder, leads og oppfølging." },
+  { icon: Repeat, title: "Automatisert oppfølging", text: "Send riktig melding til riktig tid, automatisk." },
+  { icon: Mail, title: "Nyhetsbrev", text: "Bygg en kanal du eier selv, og hold kundene varme." },
+  { icon: MessageSquare, title: "SMS-varsler", text: "Påminnelser og bekreftelser rett i lomma." },
+  { icon: LayoutDashboard, title: "Interne dashboards", text: "Samle data og prosesser i et enkelt verktøy." },
+  { icon: TrendingUp, title: "Analyse og forbedring", text: "Forstå hva som virker, og gjør mer av det." },
 ];
 
 export const Possibilities = () => {
@@ -18,19 +28,26 @@ export const Possibilities = () => {
         <SectionHeader
           eyebrow="Videre muligheter"
           title="Nettsiden kan være første steg"
-          description="Når nettsiden er på plass, kan ConsultEng også hjelpe med digitale løsninger som gjør hverdagen enklere og mer profesjonell. Dette er valgfrie neste steg, og er ikke inkludert i den grunnleggende nettsideleveransen."
+          description="Når nettsiden står, kan vi bygge videre med digitale løsninger som gjør hverdagen enklere. Valgfrie neste steg, ikke inkludert i den grunnleggende nettsideleveransen."
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/70 bg-border/70 md:grid-cols-4">
-          {items.map((item, i) => (
-            <div
-              key={item}
-              className="reveal flex items-center justify-between bg-card px-5 py-6 transition-colors hover:bg-background"
+        <div className="mt-14 grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
+          {items.map(({ icon: Icon, title, text }, i) => (
+            <article
+              key={title}
+              className="card-elevated reveal p-7"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <span className="text-sm font-medium text-foreground">{item}</span>
-              <span className="h-1 w-1 rounded-full bg-accent" aria-hidden />
-            </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
+                <Icon className="h-5 w-5" strokeWidth={1.6} />
+              </div>
+              <h3 className="mt-6 text-base font-medium tracking-tight text-foreground">
+                {title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {text}
+              </p>
+            </article>
           ))}
         </div>
       </div>

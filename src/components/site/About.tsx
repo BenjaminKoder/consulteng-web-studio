@@ -2,20 +2,19 @@ import { SectionHeader } from "./SectionHeader";
 
 const facts = [
   { k: "Studerer", v: "Datateknologi, NTNU" },
-  { k: "Frontend siden", v: "2021 (16 år)" },
-  { k: "For tiden", v: "Praktikant, Innovation Norway · Houston" },
+  { k: "For tiden", v: "Praktikant, Innovasjon Norge · Houston" },
   { k: "Base", v: "Oslo / Trondheim" },
 ];
 
 export const About = () => {
   return (
     <section id="om" className="bg-secondary/40 py-24 md:py-32">
-      <div className="container-tight grid gap-14 md:grid-cols-12 md:gap-16">
+      <div className="container-tight grid gap-14 md:grid-cols-12 md:gap-16 md:items-center">
         <div className="md:col-span-5">
           <SectionHeader
             eyebrow="Om"
             title="Benjamin Eng"
-            description="Teknisk bakgrunn fra NTNU, praktisk utviklingserfaring siden ungdomsårene, og en arbeidsstil bygget rundt klarhet, kvalitet og forutsigbarhet."
+            description="Teknisk bakgrunn fra NTNU og praktisk utviklingserfaring. Arbeidsstil bygget rundt klarhet, kvalitet og forutsigbarhet."
           />
 
           <dl className="reveal mt-10 divide-y divide-border border-y border-border">
@@ -34,9 +33,8 @@ export const About = () => {
           <div className="reveal space-y-5 text-[15px] leading-relaxed text-foreground/85 md:text-base">
             <p>
               Jeg er fra Oslo og studerer Datateknologi ved NTNU i Trondheim.
-              Jeg startet med frontend-utvikling som 16-åring i 2021, og har
-              siden jobbet videre med HTML, CSS, JavaScript, Python, moderne
-              webutvikling og digitale systemer.
+              Jeg har jobbet med frontend-utvikling siden 2021, og videre med
+              moderne webutvikling, Python og digitale systemer.
             </p>
             <p>
               Ved siden av studiene er jeg involvert i DigiSaga, en
@@ -45,14 +43,14 @@ export const About = () => {
               automatisering.
             </p>
             <p>
-              For tiden er jeg praktikant ved Innovation Norway sitt kontor i
+              For tiden er jeg praktikant ved Innovasjon Norge sitt kontor i
               Houston, der jeg jobber med digitale verktøy og initiativer
               knyttet til norske og amerikanske bedrifter, særlig innen
               software og AI.
             </p>
             <p className="text-sm text-muted-foreground">
               ConsultEng er en selvstendig satsing og er ikke tilknyttet,
-              støttet av eller drevet i regi av Innovation Norway.
+              støttet av eller drevet i regi av Innovasjon Norge.
             </p>
           </div>
         </div>

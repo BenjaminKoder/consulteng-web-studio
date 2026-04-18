@@ -26,7 +26,7 @@ export const Problem = () => {
         <SectionHeader
           eyebrow="Førsteinntrykk"
           title="Nye bedrifter blir vurdert før første samtale"
-          description="Når noen hører om en ny bedrift, søker de ofte etter den på nett før de tar kontakt. En ryddig nettside kan gjøre forskjellen mellom å virke uferdig og å virke profesjonell."
+          description="De fleste sjekker nettsiden din før de tar kontakt. Uten en profesjonell side taper du tillit før første samtale."
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-3 md:gap-6">
