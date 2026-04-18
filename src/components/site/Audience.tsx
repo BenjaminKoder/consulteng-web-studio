@@ -1,6 +1,6 @@
 import { SectionHeader } from "./SectionHeader";
 
-const tags = [
+const rowOne = [
   "Klinikker",
   "Konsulenter",
   "Håndverkere",
@@ -9,35 +9,73 @@ const tags = [
   "Behandlere",
   "Lokale tjenester",
   "Startups",
+  "Fotografer",
+  "Coaches",
+  "Arkitekter",
 ];
+
+const rowTwo = [
+  "Regnskapsførere",
+  "Advokater",
+  "Catering",
+  "Yogastudio",
+  "PT-er",
+  "Eiendomsmeglere",
+  "Arrangører",
+  "Kursholdere",
+  "Terapeuter",
+  "Tannleger",
+  "Designere",
+];
+
+const Chip = ({ label }: { label: string }) => (
+  <span className="mx-1.5 inline-flex shrink-0 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm text-foreground/80 shadow-xs">
+    {label}
+  </span>
+);
+
+const Row = ({
+  items,
+  direction = "left",
+}: {
+  items: string[];
+  direction?: "left" | "right";
+}) => {
+  const doubled = [...items, ...items];
+  return (
+    <div className="group relative overflow-hidden">
+      <div
+        className={
+          direction === "left"
+            ? "flex w-max animate-marquee-left group-hover:[animation-play-state:paused]"
+            : "flex w-max animate-marquee-right group-hover:[animation-play-state:paused]"
+        }
+      >
+        {doubled.map((t, i) => (
+          <Chip key={`${t}-${i}`} label={t} />
+        ))}
+      </div>
+      {/* edge fades */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
+    </div>
+  );
+};
 
 export const Audience = () => {
   return (
     <section className="py-24 md:py-32">
-      <div className="container-tight grid gap-12 md:grid-cols-12 md:gap-16">
-        <div className="md:col-span-5">
-          <SectionHeader
-            eyebrow="Hvem passer det for"
-            title="Laget for bedrifter som skal ut i markedet"
-            description="Passer spesielt godt for nyetablerte bedrifter, lokale tjenestebedrifter, konsulenter, behandlere, klinikker, trenere, håndverkere og andre som trenger en profesjonell digital start."
-          />
-        </div>
-        <div className="md:col-span-7">
-          <div className="reveal flex flex-wrap gap-2.5">
-            {tags.map((t) => (
-              <span
-                key={t}
-                className="inline-flex items-center rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-xs"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-          <p className="reveal mt-8 text-sm text-muted-foreground">
-            Er du i tvil om det passer for din bedrift? Send en henvendelse, så
-            gir vi en ærlig vurdering.
-          </p>
-        </div>
+      <div className="container-tight">
+        <SectionHeader
+          eyebrow="Hvem passer det for"
+          title="Laget for bedrifter som skal ut i markedet"
+          align="center"
+        />
+      </div>
+
+      <div className="mt-14 space-y-4">
+        <Row items={rowOne} direction="left" />
+        <Row items={rowTwo} direction="right" />
       </div>
     </section>
   );
