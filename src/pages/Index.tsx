@@ -44,11 +44,11 @@ const Index = () => {
         <Hero />
         <Problem />
         <Services />
-        <Audience />
         <Process />
-        <Projects />
-        <About />
         <Possibilities />
+        <Projects />
+        <Audience />
+        <About />
         <Contact />
       </main>
       <Footer />
