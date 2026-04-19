@@ -49,7 +49,7 @@ export const Contact = () => {
 
   return (
     <section id="kontakt" className="bg-secondary/40 py-24 md:py-32">
-      <div className="container-tight grid gap-12 md:grid-cols-12 md:gap-16">
+      <div className="container-tight grid gap-12 md:grid-cols-12 md:gap-16 md:items-start">
         <div className="md:col-span-5">
           <SectionHeader
             eyebrow="Kontakt"
@@ -87,7 +87,7 @@ export const Contact = () => {
         <div className="md:col-span-7">
           <form
             onSubmit={onSubmit}
-            className="reveal space-y-6 border-t border-border pt-8 md:pt-10"
+            className="reveal space-y-6"
           >
             <div className="space-y-2">
               <Label htmlFor="name">Navn</Label>
