@@ -17,7 +17,7 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobilvennlig design",
-    text: "Nettsiden ser like bra ut på mobil, nettbrett og skjerm — der kundene faktisk er.",
+    text: "Nettsiden ser like bra ut på mobil, nettbrett og skjerm, der kundene faktisk er.",
   },
   {
     icon: AlignLeft,
@@ -48,7 +48,7 @@ export const Services = () => {
         <SectionHeader
           eyebrow="Tjenester"
           title="Dette får du hjelp med"
-          description="Du trenger ikke kunne noe teknisk. Vi tar ansvar for struktur, design og teknisk implementasjon — fra første samtale til ferdig publisert nettside."
+          description="Du trenger ikke kunne noe teknisk. Vi tar ansvar for struktur, design og teknisk implementasjon, fra første samtale til ferdig publisert nettside."
         />
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border/70 bg-border/70 md:grid-cols-2 lg:grid-cols-3">

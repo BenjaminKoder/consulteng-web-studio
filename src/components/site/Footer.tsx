@@ -5,9 +5,9 @@ export const Footer = () => {
       <div className="container-tight py-14">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
-            <div className="flex items-baseline gap-1 font-display text-xl font-medium tracking-tight">
-              ConsultEng
-              <span className="h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-accent" aria-hidden />
+            <div className="font-display text-xl font-medium tracking-tight">
+              <span className="text-foreground">Consult</span>
+              <span className="text-accent">Eng</span>
             </div>
             <p className="mt-3 max-w-sm text-sm text-muted-foreground">
               Profesjonell nettside for nye bedrifter. Oslo / Trondheim.

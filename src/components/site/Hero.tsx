@@ -43,7 +43,7 @@ export const Hero = () => {
             </div>
 
             <p className="mt-7 max-w-md text-sm text-muted-foreground">
-              Nettside, kontaktskjema, mobiltilpasning og publisering — samlet i
+              Nettside, kontaktskjema, mobiltilpasning og publisering. Samlet i
               én ryddig prosess.
             </p>
           </div>
