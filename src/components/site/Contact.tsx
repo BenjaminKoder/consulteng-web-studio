@@ -54,7 +54,7 @@ export const Contact = () => {
           <SectionHeader
             eyebrow="Kontakt"
             title="Få et gratis forslag"
-            description="Legg igjen navn og hvordan du vil bli kontaktet — så hører du fra meg innen kort tid. Helt uforpliktende."
+            description="Legg igjen navn og hvordan du vil bli kontaktet, så hører du fra meg innen kort tid. Helt uforpliktende."
           />
 
           <div className="reveal mt-10 space-y-4 text-sm">

@@ -32,9 +32,9 @@ export const Header = () => {
       )}
     >
       <div className="container-tight flex h-16 items-center justify-between md:h-20">
-        <a href="#top" className="flex items-baseline gap-1 font-display text-xl font-medium tracking-tight">
-          ConsultEng
-          <span className="h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-accent" aria-hidden />
+        <a href="#top" className="font-display text-xl font-medium tracking-tight">
+          <span className="text-foreground">Consult</span>
+          <span className="text-accent">Eng</span>
         </a>
 
         <nav className="hidden items-center gap-9 md:flex" aria-label="Hovedmeny">
