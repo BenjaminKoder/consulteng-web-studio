@@ -29,9 +29,17 @@ const rowTwo = [
 ];
 
 const Chip = ({ label }: { label: string }) => (
-  <span className="mx-1.5 inline-flex shrink-0 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm text-foreground/80 shadow-xs">
+  <span className="inline-flex shrink-0 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm text-foreground/80 shadow-xs">
     {label}
   </span>
+);
+
+const Track = ({ items }: { items: string[] }) => (
+  <div className="flex shrink-0 items-center gap-3 pr-3">
+    {items.map((t, i) => (
+      <Chip key={`${t}-${i}`} label={t} />
+    ))}
+  </div>
 );
 
 const Row = ({
@@ -41,7 +49,6 @@ const Row = ({
   items: string[];
   direction?: "left" | "right";
 }) => {
-  const doubled = [...items, ...items];
   return (
     <div className="group relative overflow-hidden">
       <div
@@ -51,9 +58,8 @@ const Row = ({
             : "flex w-max animate-marquee-right group-hover:[animation-play-state:paused]"
         }
       >
-        {doubled.map((t, i) => (
-          <Chip key={`${t}-${i}`} label={t} />
-        ))}
+        <Track items={items} />
+        <Track items={items} />
       </div>
       {/* edge fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
