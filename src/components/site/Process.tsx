@@ -36,38 +36,40 @@ export const Process = () => {
 
         {/* Start → Slutt timeline rail */}
         <div className="reveal mt-16">
-          <div className="mb-6 hidden items-center gap-4 md:flex">
-            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-accent">
+          {/* Single unified rail with Start/Lansert labels and dots */}
+          <div className="relative mb-10 hidden h-7 items-center md:flex">
+            <span className="inline-flex items-center gap-2 pr-4 text-xs uppercase tracking-[0.2em] text-accent">
               <Flag className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
               Start
             </span>
-            <span className="h-px flex-1 bg-border" aria-hidden />
-            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-accent">
+            <div className="relative flex-1">
+              <span
+                aria-hidden
+                className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-accent/30 via-border to-accent/30"
+              />
+              {steps.map((_, i) => (
+                <span
+                  key={i}
+                  aria-hidden
+                  className="absolute top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent ring-4 ring-background"
+                  style={{ left: `${((i + 0.5) / steps.length) * 100}%` }}
+                />
+              ))}
+            </div>
+            <span className="inline-flex items-center gap-2 pl-4 text-xs uppercase tracking-[0.2em] text-accent">
               Lansert
               <CheckCircle2 className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
             </span>
           </div>
 
           <ol className="relative grid gap-5 md:grid-cols-4 md:gap-6">
-            {/* Continuous rail behind cards (desktop) */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-accent/0 via-border to-accent/0 md:block"
-            />
-
             {steps.map((s, i) => (
               <li
                 key={s.n}
                 className="reveal relative"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                {/* Tick on the rail */}
-                <span
-                  aria-hidden
-                  className="absolute left-1/2 top-7 hidden h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent ring-4 ring-background md:block"
-                />
-
-                <article className="card-editorial mt-14 flex h-full flex-col p-7 md:mt-16">
+                <article className="card-editorial flex h-full flex-col p-7">
                   <span className="font-display text-3xl tracking-tight text-accent">
                     {s.n}
                   </span>
