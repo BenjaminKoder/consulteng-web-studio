@@ -11,9 +11,25 @@ import { SectionHeader } from "./SectionHeader";
 const schema = z
   .object({
     name: z.string().trim().min(1, "Navn må fylles ut").max(100),
-    contact: z.string().trim().min(3, "Legg igjen e-post eller telefon").max(255),
+    email: z
+      .string()
+      .trim()
+      .email("Ugyldig e-postadresse")
+      .max(255)
+      .optional()
+      .or(z.literal("")),
+    phone: z
+      .string()
+      .trim()
+      .max(40)
+      .optional()
+      .or(z.literal("")),
     message: z.string().trim().max(1500).optional().or(z.literal("")),
-  });
+  })
+  .refine(
+    (d) => (d.email && d.email.length > 0) || (d.phone && d.phone.length > 0),
+    { message: "Fyll inn e-post eller telefon", path: ["email"] }
+  );
 
 export const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -24,7 +40,8 @@ export const Contact = () => {
     const data = new FormData(form);
     const parsed = schema.safeParse({
       name: data.get("name"),
-      contact: data.get("contact"),
+      email: data.get("email"),
+      phone: data.get("phone"),
       message: data.get("message"),
     });
 
@@ -46,7 +63,8 @@ export const Contact = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: parsed.data.name,
-            contact: parsed.data.contact,
+            email: parsed.data.email ?? "",
+            phone: parsed.data.phone ?? "",
             message: parsed.data.message ?? "",
             source: "consulteng.no",
             submittedAt: new Date().toISOString(),
@@ -126,16 +144,29 @@ export const Contact = () => {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="contact">E-post eller telefon</Label>
-              <Input
-                id="contact"
-                name="contact"
-                required
-                maxLength={255}
-                placeholder="navn@bedrift.no eller +47 ..."
-                className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-foreground focus-visible:ring-0"
-              />
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="email">E-post</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  maxLength={255}
+                  placeholder="navn@bedrift.no"
+                  className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-foreground focus-visible:ring-0"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Telefon</Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  maxLength={40}
+                  placeholder="+47 ..."
+                  className="h-12 rounded-none border-0 border-b border-border bg-transparent px-0 shadow-none focus-visible:border-foreground focus-visible:ring-0"
+                />
+              </div>
             </div>
 
             <div className="space-y-2">
