@@ -87,26 +87,6 @@ export const Process = () => {
             </span>
           </div>
 
-          {/* Connector lines between cards (desktop only) */}
-          <div
-            aria-hidden
-            className="relative mx-auto mb-4 hidden md:block"
-            style={{ height: "1px" }}
-          >
-            <div className="absolute inset-x-[12.5%] top-0 grid grid-cols-3">
-              {[0, 1, 2].map((i) => (
-                <span
-                  key={i}
-                  className={`h-px transition-all duration-500 ${
-                    active !== null && (active === i || active === i + 1)
-                      ? "bg-accent"
-                      : "bg-border"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
           <ol className="relative grid gap-5 md:grid-cols-4 md:gap-6">
             {steps.map((s, i) => (
               <li
