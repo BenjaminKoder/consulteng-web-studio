@@ -5,19 +5,16 @@ const items = [
     n: "01",
     title: "Bygg tillit fra start",
     text: "En ryddig nettside signaliserer at bedriften er reell, gjennomtenkt og til å stole på.",
-    highlighted: true,
   },
   {
     n: "02",
     title: "Forklar tydelig hva du tilbyr",
     text: "Klar struktur og tekst gjør at besøkende skjønner tilbudet ditt på sekunder.",
-    highlighted: false,
   },
   {
     n: "03",
     title: "Gjør det enkelt å ta kontakt",
     text: "Tydelige kontaktveier reduserer terskelen for å sende den første henvendelsen.",
-    highlighted: false,
   },
 ];
 
@@ -32,24 +29,17 @@ export const Problem = () => {
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-3 md:gap-6">
-          {items.map(({ n, title, text, highlighted }, i) => (
+          {items.map(({ n, title, text }, i) => (
             <article
               key={title}
-              className={`reveal flex flex-col p-8 md:p-9 ${
-                highlighted ? "card-sage" : "card-editorial"
-              }`}
+              className="card-editorial reveal flex flex-col p-8 md:p-9"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="flex items-center justify-between">
                 <span className="font-display text-sm tracking-tight text-accent">
                   {n}
                 </span>
-                <span
-                  className={`h-px w-10 ${
-                    highlighted ? "bg-accent/40" : "bg-border"
-                  }`}
-                  aria-hidden
-                />
+                <span className="h-px w-10 bg-border" aria-hidden />
               </div>
               <h3 className="mt-10 text-lg font-medium tracking-tight text-foreground">
                 {title}
