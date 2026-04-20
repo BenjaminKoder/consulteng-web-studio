@@ -18,9 +18,10 @@ const schema = z
 export const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const parsed = schema.safeParse({
       name: data.get("name"),
       contact: data.get("contact"),
@@ -37,14 +38,38 @@ export const Contact = () => {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      (e.target as HTMLFormElement).reset();
+    try {
+      const res = await fetch(
+        "https://hook.eu2.make.com/76il15c4h6n4eexuk4rb8ah1vgr1mkui",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: parsed.data.name,
+            contact: parsed.data.contact,
+            message: parsed.data.message ?? "",
+            source: "consulteng.no",
+            submittedAt: new Date().toISOString(),
+          }),
+        }
+      );
+
+      if (!res.ok) throw new Error(`Webhook feilet (${res.status})`);
+
+      form.reset();
       toast({
         title: "Takk for henvendelsen",
         description: "Jeg tar kontakt så snart som mulig.",
       });
-    }, 600);
+    } catch (err) {
+      toast({
+        title: "Noe gikk galt",
+        description: "Kunne ikke sende skjemaet. Prøv igjen, eller send e-post direkte.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
