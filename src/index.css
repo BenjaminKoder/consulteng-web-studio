@@ -176,10 +176,9 @@
     @apply bg-accent;
   }
 
-  /* Sage-tinted variant for highlighted cards */
+  /* Sage variant kept as alias of editorial (no green cards anymore) */
   .card-sage {
-    @apply rounded-xl border border-accent/15 transition-all duration-300;
-    background: hsl(var(--secondary));
+    @apply relative rounded-xl border border-border bg-card transition-all duration-300;
     box-shadow: var(--shadow-xs);
   }
 
@@ -191,5 +190,26 @@
 
   .link-underline {
     @apply relative inline-flex items-center gap-1.5 text-foreground transition-opacity hover:opacity-70;
+  }
+
+  /* Soft vertical fades between cream and sage tones — no hard edges */
+  .section-fade-to-sage {
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background)) 0%,
+      hsl(105 16% 94%) 100%
+    );
+  }
+
+  .section-fade-to-cream {
+    background: linear-gradient(
+      to bottom,
+      hsl(105 16% 94%) 0%,
+      hsl(var(--background)) 100%
+    );
+  }
+
+  .section-sage {
+    background: hsl(105 16% 94%);
   }
 }
