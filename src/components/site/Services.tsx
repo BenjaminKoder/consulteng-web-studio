@@ -24,7 +24,7 @@ const services = [
   {
     n: "03",
     title: "Tydelig tekststruktur",
-    text: "Vi strukturerer innholdet slik at det er lett å lese og enkelt å forstå hva du tilbyr.",
+    text: "Jeg strukturerer innholdet slik at det er lett å lese og enkelt å forstå hva du tilbyr.",
     Icon: AlignLeft,
   },
   {
@@ -42,7 +42,7 @@ const services = [
   {
     n: "06",
     title: "Publisering og teknisk oppsett",
-    text: "Vi tar oss av det tekniske rundt domene, hosting og lansering. Du trenger ikke kunne noe fra før.",
+    text: "Jeg tar meg av det tekniske rundt domene, hosting og lansering. Du trenger ikke kunne noe fra før.",
     Icon: Globe,
   },
 ];
@@ -54,7 +54,7 @@ export const Services = () => {
         <SectionHeader
           eyebrow="Tjenester"
           title="Dette får du hjelp med"
-          description="Du trenger ikke kunne noe teknisk. Vi tar ansvar for struktur, design og teknisk implementasjon, fra første samtale til ferdig publisert nettside."
+          description="Du trenger ikke kunne noe teknisk. Jeg tar ansvar for struktur, design og teknisk implementasjon, fra første samtale til ferdig publisert nettside."
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">

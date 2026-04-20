@@ -6,7 +6,7 @@ const steps = [
   {
     n: "01",
     title: "Kartlegging",
-    text: "Vi avklarer hva bedriften tilbyr, hvem kundene er og hva nettsiden skal gjøre.",
+    text: "Jeg avklarer hva bedriften tilbyr, hvem kundene er og hva nettsiden skal gjøre.",
   },
   {
     n: "02",
@@ -16,7 +16,7 @@ const steps = [
   {
     n: "03",
     title: "Design og utvikling",
-    text: "Vi bygger en moderne, mobilvennlig og profesjonell nettside.",
+    text: "Jeg bygger en moderne, mobilvennlig og profesjonell nettside.",
   },
   {
     n: "04",
@@ -57,7 +57,9 @@ export const Process = () => {
                 style={{
                   width:
                     active !== null
-                      ? `${((active + 0.5) / steps.length) * 100}%`
+                      ? active === steps.length - 1
+                        ? "100%"
+                        : `${((active + 0.5) / steps.length) * 100}%`
                       : "0%",
                 }}
               />

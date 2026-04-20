@@ -28,7 +28,7 @@ export const Possibilities = () => {
         <SectionHeader
           eyebrow="Videre muligheter"
           title="Nettsiden kan være første steg"
-          description="Når nettsiden står, kan vi bygge videre med digitale løsninger som gjør hverdagen enklere. Valgfrie neste steg, ikke inkludert i den grunnleggende nettsideleveransen."
+          description="Når nettsiden står, kan jeg bygge videre med digitale løsninger som gjør hverdagen enklere. Valgfrie neste steg, ikke inkludert i den grunnleggende nettsideleveransen."
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
