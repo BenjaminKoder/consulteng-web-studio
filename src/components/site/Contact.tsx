@@ -48,7 +48,7 @@ export const Contact = () => {
   };
 
   return (
-    <section id="kontakt" className="bg-secondary/40 py-24 md:py-32">
+    <section id="kontakt" className="section-sage py-24 md:py-32">
       <div className="container-tight grid gap-12 md:grid-cols-12 md:gap-16 md:items-start">
         <div className="md:col-span-5">
           <SectionHeader

@@ -1,3 +1,4 @@
+import { Flag, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 const steps = [
@@ -33,48 +34,54 @@ export const Process = () => {
           description="Forutsigbart, tydelig og uten unødvendige ledd. Du vet alltid hva som skjer i hvert steg."
         />
 
-        <ol className="reveal mt-16 grid gap-5 md:grid-cols-4 md:gap-6">
-          {steps.map((s, i) => {
-            const isLast = i === steps.length - 1;
-            return (
+        {/* Start → Slutt timeline rail */}
+        <div className="reveal mt-16">
+          <div className="mb-6 hidden items-center gap-4 md:flex">
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-accent">
+              <Flag className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
+              Start
+            </span>
+            <span className="h-px flex-1 bg-border" aria-hidden />
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-accent">
+              Lansert
+              <CheckCircle2 className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
+            </span>
+          </div>
+
+          <ol className="relative grid gap-5 md:grid-cols-4 md:gap-6">
+            {/* Continuous rail behind cards (desktop) */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-accent/0 via-border to-accent/0 md:block"
+            />
+
+            {steps.map((s, i) => (
               <li
                 key={s.n}
-                className="reveal relative flex"
+                className="reveal relative"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <article className="card-editorial relative flex w-full flex-col p-7">
-                  {/* Step indicator */}
-                  <div className="flex items-center gap-3">
-                    <span className="font-display text-2xl tracking-tight text-accent">
-                      {s.n}
-                    </span>
-                    <span className="h-px flex-1 bg-border" aria-hidden />
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                      {isLast ? "Slutt" : i === 0 ? "Start" : "Steg"}
-                    </span>
-                  </div>
+                {/* Tick on the rail */}
+                <span
+                  aria-hidden
+                  className="absolute left-1/2 top-7 hidden h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent ring-4 ring-background md:block"
+                />
 
-                  <h3 className="mt-10 text-lg font-medium tracking-tight text-foreground">
+                <article className="card-editorial mt-14 flex h-full flex-col p-7 md:mt-16">
+                  <span className="font-display text-3xl tracking-tight text-accent">
+                    {s.n}
+                  </span>
+                  <h3 className="mt-6 font-display text-lg font-medium tracking-tight text-foreground">
                     {s.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {s.text}
                   </p>
                 </article>
-
-                {/* Arrow connector to next card (desktop only) */}
-                {!isLast && (
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute right-[-1.1rem] top-1/2 hidden h-px w-5 -translate-y-1/2 bg-border md:block"
-                  >
-                    <span className="absolute right-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rotate-45 border-r border-t border-border" />
-                  </span>
-                )}
               </li>
-            );
-          })}
-        </ol>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
   );
