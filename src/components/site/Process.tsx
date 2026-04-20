@@ -25,7 +25,7 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section id="prosess" className="bg-secondary/40 py-24 md:py-32">
+    <section id="prosess" className="py-24 md:py-32">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Prosess"
@@ -33,23 +33,34 @@ export const Process = () => {
           description="Forutsigbart, tydelig og uten unødvendige ledd. Du vet alltid hva som skjer i hvert steg."
         />
 
-        <ol className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border/70 bg-border/70 md:grid-cols-4">
+        <ol className="reveal relative mt-16 grid gap-5 md:grid-cols-4 md:gap-6">
+          {/* Connector line on desktop */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-0 right-0 top-[2.6rem] hidden h-px bg-border md:block"
+          />
           {steps.map((s, i) => (
             <li
               key={s.n}
-              className="reveal relative bg-card p-8"
+              className="reveal relative flex flex-col"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="flex items-baseline justify-between">
-                <span className="font-display text-sm text-muted-foreground">{s.n}</span>
-                <span className="h-px w-8 bg-border" aria-hidden />
+              <div className="relative flex h-8 items-center">
+                <span className="relative z-10 flex h-3 w-3 items-center justify-center rounded-full bg-accent">
+                  <span className="absolute h-6 w-6 rounded-full bg-accent/15" aria-hidden />
+                </span>
               </div>
-              <h3 className="mt-8 text-lg font-medium tracking-tight text-foreground">
-                {s.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {s.text}
-              </p>
+              <div className="card-editorial mt-4 flex flex-col p-7">
+                <span className="font-display text-sm tracking-tight text-accent">
+                  {s.n}
+                </span>
+                <h3 className="mt-6 text-lg font-medium tracking-tight text-foreground">
+                  {s.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {s.text}
+                </p>
+              </div>
             </li>
           ))}
         </ol>

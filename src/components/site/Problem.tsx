@@ -1,21 +1,23 @@
-import { ShieldCheck, MessageSquareText, Send } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
 const items = [
   {
-    icon: ShieldCheck,
+    n: "01",
     title: "Bygg tillit fra start",
     text: "En ryddig nettside signaliserer at bedriften er reell, gjennomtenkt og til å stole på.",
+    highlighted: true,
   },
   {
-    icon: MessageSquareText,
+    n: "02",
     title: "Forklar tydelig hva du tilbyr",
     text: "Klar struktur og tekst gjør at besøkende skjønner tilbudet ditt på sekunder.",
+    highlighted: false,
   },
   {
-    icon: Send,
+    n: "03",
     title: "Gjør det enkelt å ta kontakt",
     text: "Tydelige kontaktveier reduserer terskelen for å sende den første henvendelsen.",
+    highlighted: false,
   },
 ];
 
@@ -30,19 +32,29 @@ export const Problem = () => {
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-3 md:gap-6">
-          {items.map(({ icon: Icon, title, text }, i) => (
+          {items.map(({ n, title, text, highlighted }, i) => (
             <article
               key={title}
-              className="card-elevated reveal p-7 md:p-8"
+              className={`reveal flex flex-col p-8 md:p-9 ${
+                highlighted ? "card-sage" : "card-editorial"
+              }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-foreground">
-                <Icon className="h-5 w-5" strokeWidth={1.6} />
+              <div className="flex items-center justify-between">
+                <span className="font-display text-sm tracking-tight text-accent">
+                  {n}
+                </span>
+                <span
+                  className={`h-px w-10 ${
+                    highlighted ? "bg-accent/40" : "bg-border"
+                  }`}
+                  aria-hidden
+                />
               </div>
-              <h3 className="mt-6 text-lg font-medium tracking-tight text-foreground">
+              <h3 className="mt-10 text-lg font-medium tracking-tight text-foreground">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {text}
               </p>
             </article>
