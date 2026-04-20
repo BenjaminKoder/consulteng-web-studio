@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import icon from "@/assets/consulteng-icon.png";
 
 const NAV = [
   { href: "#tjenester", label: "Tjenester" },
@@ -32,9 +33,18 @@ export const Header = () => {
       )}
     >
       <div className="container-tight flex h-16 items-center justify-between md:h-20">
-        <a href="#top" className="font-display text-xl font-medium tracking-tight">
-          <span className="text-foreground">Consult</span>
-          <span className="text-accent">Eng</span>
+        <a href="#top" className="flex items-center gap-2.5 font-display text-xl font-medium tracking-tight">
+          <img
+            src={icon}
+            alt="ConsultEng-ikon"
+            width={28}
+            height={28}
+            className="h-7 w-7 object-contain"
+          />
+          <span>
+            <span className="text-foreground">Consult</span>
+            <span className="text-accent">Eng</span>
+          </span>
         </a>
 
         <nav className="hidden items-center gap-9 md:flex" aria-label="Hovedmeny">
