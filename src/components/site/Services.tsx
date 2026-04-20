@@ -4,7 +4,7 @@ import {
   AlignLeft,
   Mail,
   Search,
-  Rocket,
+  Globe,
 } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
@@ -43,7 +43,7 @@ const services = [
     n: "06",
     title: "Publisering og teknisk oppsett",
     text: "Vi tar oss av det tekniske rundt domene, hosting og lansering. Du trenger ikke kunne noe fra før.",
-    Icon: Rocket,
+    Icon: Globe,
   },
 ];
 
