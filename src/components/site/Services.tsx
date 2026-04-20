@@ -58,24 +58,19 @@ export const Services = () => {
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {services.map(({ n, title, text, Icon }, i) => (
+          {services.map(({ title, text, Icon }, i) => (
             <article
               key={title}
               className="card-editorial reveal flex flex-col p-8"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <div className="flex items-center justify-between">
-                <span className="font-display text-sm tracking-tight text-accent">
-                  {n}
-                </span>
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-accent">
-                  <Icon className="h-4 w-4" strokeWidth={1.6} aria-hidden />
-                </span>
-              </div>
-              <h3 className="mt-8 text-lg font-medium tracking-tight text-foreground">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-accent">
+                <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} aria-hidden />
+              </span>
+              <h3 className="mt-8 font-display text-xl font-medium tracking-tight text-foreground">
                 {title}
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {text}
               </p>
             </article>
