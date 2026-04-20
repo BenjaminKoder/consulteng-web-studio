@@ -23,7 +23,7 @@ const items = [
 
 export const Possibilities = () => {
   return (
-    <section className="section-fade-to-sage py-24 md:py-32">
+    <section className="section-sage py-24 md:py-32">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Videre muligheter"

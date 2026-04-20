@@ -10,7 +10,7 @@ const facts = [
 
 export const About = () => {
   return (
-    <section id="om" className="bg-secondary/40 py-24 md:py-32">
+    <section id="om" className="section-fade-to-sage py-24 md:py-32">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Om"
